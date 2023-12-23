@@ -215,5 +215,6 @@ terraform {
   - Workspaces do not show up in code or in the cli, only by using workspaces command
   - maintenance issue
   - not suitable for isolation
+  -suitable for quick testing of same config
 */
 
