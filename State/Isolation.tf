@@ -30,5 +30,27 @@
 - the infrastructure configurations of both
 */
 
+# Folder structure
+
+/**
+
+### Environments
+
+- stage - pre production - testing
+- prod - user-facing apps
+- mgmt - devops tooling - bastion host, CI server
+- global a place to put resources that are used across all environments
+
+
+### Components within each folder
+
+vpc - network topolgy for this environment
+
+services - apps or microservices(modules of functions (shopping cart, user management))
+
+data-storage - each data store should reside in each folder to isolate from other data stores 
+*/
+
+
 
 
