@@ -48,7 +48,32 @@ vpc - network topolgy for this environment
 
 services - apps or microservices(modules of functions (shopping cart, user management))
 
-data-storage - each data store should reside in each folder to isolate from other data stores 
+data-storage - each data store should reside in each folder to isolate from other data stores
+
+
+### Terraform configuration files
+
+variables.tf
+ - input variables
+
+ output.tf
+ - output variables
+
+ main.tf
+ - resources and data sources
+
+ dependencies.tf
+ - data sources to see what external things the code depends on
+
+ providers.tf
+ - providers the code talks to and what authentication youll have to provide
+
+ main-xxx.tf
+ -subgroupings/resources of main if main is getting too long for example:
+ -main-iam.tf
+  -IAM resources
+-main.s3.tf
+  -s3 resources
 */
 
 
