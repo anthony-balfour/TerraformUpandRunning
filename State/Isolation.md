@@ -74,6 +74,13 @@ variables.tf
   -IAM resources
 -main.s3.tf
   -s3 resources
+
+
+### Grabbing Terraform state from another set of Terraform configs
+
+-use terraform_remote_state
+
+
 */
 
 
