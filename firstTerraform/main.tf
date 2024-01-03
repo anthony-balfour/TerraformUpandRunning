@@ -83,7 +83,7 @@ output "alb_dns_name" {
   description = "The domain name of the load balancer"
 }
 
-
+####### Modularize
 # Cluster of servers
 
 #on AWS use Auto Scaling Group
@@ -135,6 +135,20 @@ resource "aws_autoscaling_group" "example" {
     propagate_at_launch = true
   }
 }
+
+# Accessing the Database state file which stores the secrets of db username and password
+# Reads the state file from the s3 bucket and folder, and is READ-ONLY
+data "terraform_remote_state" "db" {
+  backend = "s3"
+
+  config = {
+    bucket = "(YOUR_BUCKET_NAME)"
+    key = "stage/data-stores/mysql/terraform.tfstate"
+    region = "us-east-2"
+  }
+}
+
+####### Modularize
 
 # Other parameter for ASG is subnet_ids, which is needed to specifiy which subnets
 #should the ec2 instances be deployed to. Subnet ids are grabbed as a datasource from

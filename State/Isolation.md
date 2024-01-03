@@ -72,7 +72,7 @@ variables.tf
  -subgroupings/resources of main if main is getting too long for example:
  -main-iam.tf
   -IAM resources
--main.s3.tf
+  -main.s3.tf
   -s3 resources
 
 
@@ -80,6 +80,18 @@ variables.tf
 
 -use terraform_remote_state
 
+
+### Providing values to Terraform variables using TF_VAR_"variable-name"
+
+on linux/unix/macos
+
+export TF_VAR_db_username="(YOUR_DB_USERNAME)"
+export TF_VAR_db_password="(YOUR_DB_PASSWORD)"
+
+on Windows
+
+set TF_VAR_db_username="(UN)"
+set TF_VAR_db_password="(Password)"
 
 */
 
