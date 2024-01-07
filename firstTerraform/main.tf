@@ -148,6 +148,20 @@ data "terraform_remote_state" "db" {
   }
 }
 
+### Ways to read data from the terraform remote state data source
+
+// data.terraform_remote_state.<NAME>.outputs.<ATRRIBUTE>
+
+// example:
+// data.terraform_remote_state.db.outputs.address
+
+
+### Terraform console - read only console which can be used to experiment with terraform functions
+
+// function_name(...)
+// format(<FMT>, <ARGS>, ...)
+//format ("%.3f", 3.1459)
+
 ####### Modularize
 
 # Other parameter for ASG is subnet_ids, which is needed to specifiy which subnets
