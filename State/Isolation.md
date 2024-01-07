@@ -70,10 +70,10 @@ variables.tf
 
  main-xxx.tf
  -subgroupings/resources of main if main is getting too long for example:
- -main-iam.tf
-  -IAM resources
+  -main-iam.tf
+    -IAM resources
   -main.s3.tf
-  -s3 resources
+    -s3 resources
 
 
 ### Grabbing Terraform state from another set of Terraform configs
@@ -81,7 +81,8 @@ variables.tf
 -use terraform_remote_state
 
 
-### Providing values to Terraform variables using TF_VAR_"variable-name"
+### Providing values to Terraform variables using TF_VAR_"variable-name" for
+### use from external systems and environment variables from the OS
 
 on linux/unix/macos
 

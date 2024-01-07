@@ -15,16 +15,15 @@
 # Terraform backend determines how state is stored and managed and loaded
  - can store on remote backends or local backends
  - backends automatically are stored on every apply and plan
- 
-# there is locking
-# encryption
-# s3 is a great remote backend, can configure access control with iam policies
 
-# benefits:
-# managed, so no extra infrastructure
-# designed for 99% durability and availability
-# supports encryption
-# supports locking
-# versioning
-# inexpensive
+# Benefits to backend
+-locking
+-encryption
+-s3 is a great remote backend, can configure access control with iam policies
+ managed, so no extra infrastructure
+ designed for 99% durability and availability
+ supports encryption
+ supports locking
+ versioning
+ inexpensive
 
