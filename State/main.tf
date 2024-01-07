@@ -95,25 +95,25 @@ resource "aws_dynamodb_table" "terraform_locks" {
 # setting the key argument
 
 ### Terraform backend code initial example ###
-# terraform {
-#   // name of bucket created
-#   // key: the filepath withint he s3 bucket where the terraform statefile should be written
-#   // same region specified
-#   // dynamodb table craeted
-#   // encyrption
-#   backend "s3" {
-#     bucket = "terraform-up-and-running-state-remote-backend"
-#     key = "global/s3/terraform.tfstate"
-#     region = "us-east-2"
+terraform {
+  // name of bucket created
+  // key: the filepath withint he s3 bucket where the terraform statefile should be written
+  // same region specified
+  // dynamodb table craeted
+  // encyrption
+  backend "s3" {
+    bucket = "terraform-up-and-running-state-remote-backend"
+    key = "global/s3/terraform.tfstate"
+    region = "us-east-2"
 
-#     # Dynamo DB table name
-#     dynamodb_table = "terraform-up-and-running-locks"
-#     encrypt = true
-#   }
-# }
+    # Dynamo DB table name
+    dynamodb_table = "terraform-up-and-running-locks"
+    encrypt = true
+  }
+}
 
 # creating output variables to demonstrate state versioning and locking
-# arn is amazon resource name
+# arn is amazon resource name - with unique identifier account id: service: resource-id
 output "s3_bucket_arn" {
   value = aws_s3_bucket.terraform_state.arn
   description = "The ARN of the s3 bucket"
