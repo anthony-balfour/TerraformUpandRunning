@@ -35,3 +35,5 @@ provider "aws" {
 
 # Input variables
 
+using: ${var.cluster_name}
+
