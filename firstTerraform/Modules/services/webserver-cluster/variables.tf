@@ -13,3 +13,30 @@ variable "db_remote_state_key" {
   type = string
 }
 
+// use case of wanting smaller server cluster in staging but larger in production
+variable "instance_type" {
+  description = "The type of EC2 Instances to run (e.g. t2.micro)"
+  type = string
+}
+
+variable "min_size" {
+  description = "The minimum number of EC2 Instances in the ASG"
+  type = number
+}
+
+variable "max_size" {
+  description = "The maximum number of EC2 Instances in the ASG"
+  type = number
+}
+
+
+
+// Server port number which defaults to 8080
+variable "server_port" {
+  description = "The port the server will use for http requests"
+  type = number
+  default = 8080
+}
+
+
+
