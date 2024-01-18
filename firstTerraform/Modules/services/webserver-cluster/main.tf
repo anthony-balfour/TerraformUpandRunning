@@ -1,4 +1,14 @@
 
+
+// locals "variables"
+
+locals {
+  http_port = 80
+  any_port = 0
+  any_protocol = "-1"
+  tcp_protocol = "tcp"
+  all_ips = ["0.0.0.0/0"]
+}
 // security group named alb
 // takes in var.cluster_name variable from module
 resource "aws_security_group" "alb" {
@@ -53,13 +63,31 @@ resource "aws_launch_configuration" example {
   health_check_type = "ELB"
 
   # specifying size of server clusters, initial size is 2
-  min_size = 2
-  max_size = 10
+  min_size = var.min_size
+  max_size = var.max_size
 
   tag {
     key = "Name"
-    value = "terraform-asg-example"
+    value = var.cluster_name
     propagate_at_launch = true
+  }
+}
+
+// load balancer listener
+
+resource "aws_lb_listener" "http" {
+  load_balancer_arn = aws_lb.example.arn
+  port = local.http_port
+  protocol = "HTTP"
+
+  default_action {
+    type = "fixed-response"
+
+    fixed_response {
+      content_type = "text/plain"
+      message_body = "404: page not found"
+      status_code = 404
+    }
   }
 }
 

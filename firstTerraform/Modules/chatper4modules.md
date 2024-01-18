@@ -37,3 +37,14 @@ provider "aws" {
 
 using: ${var.cluster_name}
 
+# locals
+
+- local values allow you to assign a name to any Terraform
+- expression and to use that name throught the module
+- names only visible within the module
+- cannot override the local outside the module
+
+- reference: local.<NAME>
+
+
+
